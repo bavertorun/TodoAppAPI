@@ -6,6 +6,7 @@
 <p>
 <img src="https://i.hizliresim.com/176j681.png" alt="To-Do Application Backend API" />
 </p>
+
 ## Description
 
 This project provides a backend API for a To-Do (task management) application. The project includes features such as user management and authentication, going beyond basic CRUD operations.
