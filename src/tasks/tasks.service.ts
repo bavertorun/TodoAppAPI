@@ -12,4 +12,9 @@ export class TasksService {
     const createdTask = await this.taskModel.create(task)
     return createdTask;
   }
+
+  async update(id:string,task:CreateTaskDto){
+    const updateedTask = await this.taskModel.findByIdAndUpdate(id,task,{new:true})
+    return updateedTask;
+  }
 }
