@@ -15,9 +15,19 @@ export class UsersService {
   async register(data: CreateUserDto) {
     data.password = await bcrypt.hash(data.password, 10);
     const registeredUser = await this.userModel.create(data);
-    return this.createToken(registeredUser);
+    return this.createToken(registeredUser.username);
   }
-  async createToken(data: CreateUserDto) {
-    return this.jwtService.sign({ data });
+  async login(data: CreateUserDto) {
+    const user = await this.userModel.findOne({ username: data.username }).exec();
+    if (!user) throw new Error('Username or password incorrect!');
+    
+    const isPassword = await bcrypt.compare(data.password, user.password);
+    if (!isPassword) throw new Error('Username or password incorrect!');
+
+    return this.createToken(user.username);
+
+  }
+  async createToken(username: string) {
+    return this.jwtService.sign({ username });
   }
 }
