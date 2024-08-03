@@ -17,4 +17,9 @@ export class TasksService {
     const updateedTask = await this.taskModel.findByIdAndUpdate(id,task,{new:true})
     return updateedTask;
   }
+
+  async delete(id: string){
+    const deletedTask = await this.taskModel.findByIdAndDelete(id);
+    return deletedTask;
+  }
 }
