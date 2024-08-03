@@ -13,7 +13,6 @@ async function bootstrap() {
       'This project provides a backend API for a To-Do (task management) application. The project includes features such as user management and authentication, going beyond basic CRUD operations.',
     )
     .setVersion('1.0')
-    .addTag('ToDoAPI')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

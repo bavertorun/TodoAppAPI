@@ -2,7 +2,9 @@ import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } fro
 import { CreateTaskDto } from './dto/task-create.dto';
 import { TasksService } from './tasks.service';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Tasks')
 @Controller('tasks')
 export class TasksController {
     constructor(private readonly taskService:TasksService){}
