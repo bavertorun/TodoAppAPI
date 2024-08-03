@@ -11,6 +11,8 @@ export class Task {
   title: string;
   @Prop({ required: true })
   content: string;
+  @Prop({ required: true })
+  status: string;
 }
 
 export const taskSchema = SchemaFactory.createForClass(Task);
