@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TasksModule } from './tasks/tasks.module';
@@ -15,7 +15,7 @@ import { TasksModule } from './tasks/tasks.module';
       }), 
       inject: [ConfigService]
     }),
-    UsersModule,
+    AuthModule,
     TasksModule
   ],
 })
